@@ -1,0 +1,51 @@
+{
+  "name": "n8n-nodes-renderly",
+  "version": "1.0.1",
+  "description": "n8n community node for Renderly: create video renders from a template, check render status, and receive webhook events.",
+  "license": "MIT",
+  "homepage": "https://renderly.video/integrations/n8n",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/renderly-video/n8n-nodes-renderly.git"
+  },
+  "keywords": [
+    "n8n-community-node-package",
+    "n8n",
+    "renderly",
+    "video",
+    "rendering",
+    "automation"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/RenderlyApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/Renderly/Renderly.node.js",
+      "dist/nodes/Renderly/triggers/RenderlyTrigger.node.js"
+    ]
+  },
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc && node -e \"const f=require(\\\"fs\\\"),s=\\\"nodes/Renderly/renderly.png\\\";for(const d of [\\\"dist/nodes/Renderly\\\",\\\"dist/nodes/Renderly/triggers\\\"])f.copyFileSync(s,d+\\\"/renderly.png\\\")\"",
+    "dev": "tsc --watch",
+    "lint": "eslint . --ext .ts",
+    "prepublishOnly": "npm run build"
+  },
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "n8n-workflow": "^1.0.0",
+    "typescript": "^5.0.0",
+    "@types/node": "^20.0.0"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  },
+  "author": "Renderly <support@renderly.video>",
+  "bugs": {
+    "url": "https://github.com/renderly-video/n8n-nodes-renderly/issues"
+  }
+}
